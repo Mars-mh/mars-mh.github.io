@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>美化 Hugo 主题 | My New Hugo Site</title>
+    <title>美化 Hugo 主题 | Mars Blog ~</title>
 
     
 
 
 
-<meta name="author" content="" />
-<meta name="description" content="" />
+<meta name="author" content="马昊" />
+<meta name="description" content="马昊 的搬砖记录～" />
 
 
 
@@ -49,6 +49,16 @@
 
   
 
+  
+  body.default {
+    
+    background-color: #ccc;
+    
+
+    
+    background-image: url(/img/StarryNight.jpg);
+    
+  }
   
 
   
@@ -94,7 +104,7 @@
           <div class="sub header">
             @
             
-              
+              马昊
             
 
             | 
@@ -111,9 +121,43 @@
         </h1>
       </header>
 
-      <article class="main"><h2 id="关键词-hugo-主题美化">关键词 ：Hugo 主题美化；</h2>
+      <article class="main"><h5 id="关键词-hugo-主题美化">关键词 ：Hugo 主题美化；</h5>
 <hr>
-<h1 id="step-1">Step-1</h1></article>
+<h2 id="step-1-内容设置-标签--分类--摘要的组织">Step-1 内容设置： 标签 / 分类 / 摘要的组织</h2>
+<ol>
+<li>标签及分类
+在发布页面的头文件之中通过如下属性进行调节</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">categories:
+  - 所在分类
+tags:
+  - 标签-1
+  - 标签-2
+</code></pre></div><ol start="2">
+<li>摘要
+使用 <code>&lt;!--more--&gt;</code> 确定摘要范围，即对<code>&lt;!--more--&gt;</code>之后的内容进行折叠，可以借其中实现关键词功能，例如：</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">##### 关键词 ：Hugo 主题美化；</span>
+&lt;!--more--&gt;
+</code></pre></div><h2 id="step-2-个人信息设置">Step-2 个人信息设置</h2>
+<ol>
+<li>个人介绍界面：
+设置位置：<code>根目录/config.toml</code>，也可以参考<a href="https://gohugo.io/getting-started/configuration/">官方配置文件</a>进行更加复杂的配置。
+本次配置内容如下：</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">baseURL <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://mars-mh.github.io/&#34;</span>
+languageCode <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;en-us&#34;</span>
+title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Mars Blog ~&#34;</span>
+author <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Mars&#34;</span>
+
+<span style="color:#f92672">[</span>params<span style="color:#f92672">]</span>
+  background <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#ccc&#34;</span>
+  backgroundImage <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/img/StarryNight.jpg&#34;</span>
+  author <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;马昊&#34;</span>
+  description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;马昊 的搬砖记录～&#34;</span>
+  avatar <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/img/my_avatar.jpg&#34;</span>
+  email <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xdmahao@gmail.com&#34;</span>
+</code></pre></div><p>需要注意其中，背景图片<code>backgroundImage</code>与头像<code>avatar</code>均在<code>根目录/static</code>文件夹下</p></article>
     </section>
 
     <footer class="ui attached segment dream-tags" data-html2canvas-ignore>
@@ -147,7 +191,13 @@
       <div class="ui segment toc">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#关键词-hugo-主题美化">关键词 ：Hugo 主题美化；</a></li>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#step-1-内容设置-标签--分类--摘要的组织">Step-1 内容设置： 标签 / 分类 / 摘要的组织</a></li>
+    <li><a href="#step-2-个人信息设置">Step-2 个人信息设置</a></li>
   </ul>
 </nav>
       </div>
@@ -157,12 +207,14 @@
   <section class="ui top attached center aligned segment">
     <div class="ui small circular image">
       
+        <img src="/img/my_avatar.jpg">
+      
     </div>
 
     
     <h1 class="ui medium header">
     
-      &#39;s blog
+      马昊&#39;s blog
       <div class="sub header" style="margin-top: 0.5rem;"></div>
     
     </h1>
@@ -247,6 +299,12 @@
     <nav class="ui secondary menu dream-menu dream-socials">
   
   
+    <div class="item">
+      <a href="mailto:xdmahao@gmail.com">
+        <i class=" mail icon" title="Email"></i>
+      </a>
+    </div>
+  
 
   
 
@@ -269,7 +327,7 @@
 
   <section class="ui bottom attached center aligned segment">
     
-      <p>© 2020 My New Hugo Site</p>
+      <p>© 2020 Mars Blog ~</p>
     
 
     <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</p>
@@ -311,6 +369,12 @@
       <div class="ui bottom attached segment">
         <nav class="ui secondary menu dream-menu dream-socials">
   
+  
+    <div class="item">
+      <a href="mailto:xdmahao@gmail.com">
+        <i class="large mail icon" title="Email"></i>
+      </a>
+    </div>
   
 
   

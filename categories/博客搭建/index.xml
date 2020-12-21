@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>博客搭建 on My New Hugo Site</title>
+    <title>博客搭建 on Mars Blog ~</title>
     <link>https://mars-mh.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link>
-    <description>Recent content in 博客搭建 on My New Hugo Site</description>
+    <description>Recent content in 博客搭建 on Mars Blog ~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 21 Dec 2020 14:16:22 +0800</lastBuildDate><atom:link href="https://mars-mh.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <pubDate>Mon, 21 Dec 2020 14:16:22 +0800</pubDate>
       
       <guid>https://mars-mh.github.io/post/blog_2020_12_21/</guid>
-      <description>&lt;h2 id=&#34;关键词-hugo-主题美化&#34;&gt;关键词 ：Hugo 主题美化；&lt;/h2&gt;</description>
+      <description>&lt;h5 id=&#34;关键词-hugo-主题美化&#34;&gt;关键词 ：Hugo 主题美化；&lt;/h5&gt;</description>
     </item>
     
     <item>
@@ -22,7 +22,7 @@
       <pubDate>Sun, 20 Dec 2020 21:24:47 +0800</pubDate>
       
       <guid>https://mars-mh.github.io/post/blog/</guid>
-      <description>&lt;h2 id=&#34;关键词-hugo-下载git-部署&#34;&gt;关键词 ：Hugo 下载；Git 部署；&lt;/h2&gt;</description>
+      <description>&lt;h5 id=&#34;关键词-hugo-下载git-部署&#34;&gt;关键词 ：Hugo 下载；Git 部署；&lt;/h5&gt;</description>
     </item>
     
   </channel>
