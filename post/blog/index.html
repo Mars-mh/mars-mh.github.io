@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>测试使用 ‘Hugo’ 搭建个人博客  | My New Hugo Site</title>
+    <title>使用 ‘Hugo’ 搭建个人博客  | My New Hugo Site</title>
 
     
 
@@ -20,7 +20,7 @@
 <link rel="canonical" href="https://mars-mh.github.io/post/blog/" />
 
 
-<meta property="og:title" content="测试使用 ‘Hugo’ 搭建个人博客 " />
+<meta property="og:title" content="使用 ‘Hugo’ 搭建个人博客 " />
 <meta property="og:description" content="Step-1 配置 Git 环境  下载 Git 配置全局账户及邮箱  git config --global user.name &#34;you Account&#34; git config --global user.email &#34;you email@163.com&#34; 生成 SSH 公钥  ssh-keygen -t rsa -C &#34;you email@163.com&#34; 代码参数含义： -t 指定密钥类型，默认是 rsa ，可省略 -C 设置注释文字，邮箱，便于后续分辨文件 -f 指定密钥文件存储文件名，此处省略 在 Github 上传 SSH Keys 测试连接  ssh git@github.com  Step-2 下载并且配置 Hugo  下载 Hugo 安装并加入path (win10 环境下)  将 *./bin/Hugo.exe 加入Path   新建 Hugo 博客项目，选择喜欢的主题  hugo new site yourblog hugo server -t aHugoTheme --buildDrafts 其中： -t：设置主题 --buildDrafts：构建草图，在本地预览 新建 blog  hugo new post/myblog." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://mars-mh.github.io/post/blog/" />
@@ -30,7 +30,7 @@
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="测试使用 ‘Hugo’ 搭建个人博客 "/>
+<meta name="twitter:title" content="使用 ‘Hugo’ 搭建个人博客 "/>
 <meta name="twitter:description" content="Step-1 配置 Git 环境  下载 Git 配置全局账户及邮箱  git config --global user.name &#34;you Account&#34; git config --global user.email &#34;you email@163.com&#34; 生成 SSH 公钥  ssh-keygen -t rsa -C &#34;you email@163.com&#34; 代码参数含义： -t 指定密钥类型，默认是 rsa ，可省略 -C 设置注释文字，邮箱，便于后续分辨文件 -f 指定密钥文件存储文件名，此处省略 在 Github 上传 SSH Keys 测试连接  ssh git@github.com  Step-2 下载并且配置 Hugo  下载 Hugo 安装并加入path (win10 环境下)  将 *./bin/Hugo.exe 加入Path   新建 Hugo 博客项目，选择喜欢的主题  hugo new site yourblog hugo server -t aHugoTheme --buildDrafts 其中： -t：设置主题 --buildDrafts：构建草图，在本地预览 新建 blog  hugo new post/myblog."/>
 
 
@@ -90,7 +90,7 @@
     <section class="ui top attached segment">
       <header>
         <h1 class="ui large header">
-          测试使用 ‘Hugo’ 搭建个人博客 
+          使用 ‘Hugo’ 搭建个人博客 
           <div class="sub header">
             @
             
@@ -173,7 +173,11 @@ git push -u origin master
 
     <footer class="ui attached segment dream-tags" data-html2canvas-ignore>
       
-          <a class="ui label">No Tags</a>
+        
+          <a class="ui label" href="/tags/hugo" title="Hugo">Hugo</a>
+        
+          <a class="ui label" href="/tags/git" title="Git">Git</a>
+        
       
       <div
         class="ui label"
@@ -280,6 +284,12 @@ git push -u origin master
                 </div>
               </div>
             
+              <div class="item">
+                <div class="content">
+                  <a class="item" href="/post/blog/">使用 ‘Hugo’ 搭建个人博客 </a>
+                </div>
+              </div>
+            
             </div>
           </div>
         
@@ -339,7 +349,7 @@ git push -u origin master
     <section class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
       <article>
         <div class="ui top attached segment">
-          <h3 class="ui header"> About Me</h3>
+          <h3 class="ui header">About Me</h3>
         </div>
         <div class="ui bottom attached segment markdown-body">
           <h1 id="hi-my-name-is-mars">Hi, my name is Mars.</h1>
