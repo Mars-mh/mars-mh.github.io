@@ -13,7 +13,7 @@
       <pubDate>Mon, 21 Dec 2020 14:16:22 +0800</pubDate>
       
       <guid>https://mars-mh.github.io/post/blog_2020_12_21/</guid>
-      <description>Step-1 </description>
+      <description>&lt;h2 id=&#34;关键词-hugo-主题美化&#34;&gt;关键词 ：Hugo 主题美化；&lt;/h2&gt;</description>
     </item>
     
     <item>
@@ -22,7 +22,7 @@
       <pubDate>Sun, 20 Dec 2020 21:24:47 +0800</pubDate>
       
       <guid>https://mars-mh.github.io/post/blog/</guid>
-      <description>Step-1 配置 Git 环境  下载 Git 配置全局账户及邮箱  git config --global user.name &amp;#34;you Account&amp;#34; git config --global user.email &amp;#34;you email@163.com&amp;#34; 生成 SSH 公钥  ssh-keygen -t rsa -C &amp;#34;you email@163.com&amp;#34; 代码参数含义： -t 指定密钥类型，默认是 rsa ，可省略 -C 设置注释文字，邮箱，便于后续分辨文件 -f 指定密钥文件存储文件名，此处省略 在 Github 上传 SSH Keys 测试连接  ssh git@github.com  Step-2 下载并且配置 Hugo  下载 Hugo 安装并加入path (win10 环境下)  将 *./bin/Hugo.exe 加入Path   新建 Hugo 博客项目，选择喜欢的主题  hugo new site yourblog hugo server -t aHugoTheme --buildDrafts 其中： -t：设置主题 --buildDrafts：构建草图，在本地预览 新建 blog  hugo new post/myblog.</description>
+      <description>&lt;h2 id=&#34;关键词-hugo-下载git-部署&#34;&gt;关键词 ：Hugo 下载；Git 部署；&lt;/h2&gt;</description>
     </item>
     
   </channel>
