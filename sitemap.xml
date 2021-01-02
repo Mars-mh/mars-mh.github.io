@@ -3,8 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://mars-mh.github.io/tags/java/</loc>
+    <lastmod>2021-01-02T09:33:02+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mars-mh.github.io/tags/jvm/</loc>
+    <lastmod>2021-01-02T09:33:02+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mars-mh.github.io/post/blog_jvm_gc/</loc>
+    <lastmod>2021-01-02T09:33:02+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mars-mh.github.io/</loc>
+    <lastmod>2021-01-02T09:33:02+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mars-mh.github.io/post/</loc>
+    <lastmod>2021-01-02T09:33:02+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mars-mh.github.io/tags/</loc>
+    <lastmod>2021-01-02T09:33:02+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://mars-mh.github.io/categories/</loc>
-    <lastmod>2020-12-21T14:16:22+08:00</lastmod>
+    <lastmod>2020-12-30T21:05:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mars-mh.github.io/categories/java/</loc>
+    <lastmod>2020-12-30T21:05:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mars-mh.github.io/post/blog_java_stream/</loc>
+    <lastmod>2020-12-30T21:05:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mars-mh.github.io/tags/stream/</loc>
+    <lastmod>2020-12-30T21:05:47+08:00</lastmod>
   </url>
   
   <url>
@@ -14,21 +59,6 @@
   
   <url>
     <loc>https://mars-mh.github.io/tags/hugo/</loc>
-    <lastmod>2020-12-21T14:16:22+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mars-mh.github.io/</loc>
-    <lastmod>2020-12-21T14:16:22+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mars-mh.github.io/post/</loc>
-    <lastmod>2020-12-21T14:16:22+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mars-mh.github.io/tags/</loc>
     <lastmod>2020-12-21T14:16:22+08:00</lastmod>
   </url>
   
@@ -43,7 +73,7 @@
   </url>
   
   <url>
-    <loc>https://mars-mh.github.io/tags/java/</loc>
+    <loc>https://mars-mh.github.io/post/blog_beautyofprogramming_01/</loc>
     <lastmod>2020-12-20T21:24:47+08:00</lastmod>
   </url>
   

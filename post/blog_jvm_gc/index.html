@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>All Categories | Mars Blog ~</title>
+    <title>JVM 垃圾收集 | Mars Blog ~</title>
 
     
 
@@ -17,20 +17,21 @@
 
 <meta name="generator" content="Hugo 0.79.1" />
 
-<link rel="canonical" href="https://mars-mh.github.io/categories/" />
+<link rel="canonical" href="https://mars-mh.github.io/post/blog_jvm_gc/" />
 
 
-<meta property="og:title" content="Categories" />
-<meta property="og:description" content="马昊 的搬砖记录～" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://mars-mh.github.io/categories/" />
-<meta property="og:updated_time" content="2020-12-30T21:05:47+08:00" />
+<meta property="og:title" content="JVM 垃圾收集" />
+<meta property="og:description" content="关键词 ：JVM；GC" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mars-mh.github.io/post/blog_jvm_gc/" />
+<meta property="article:published_time" content="2021-01-02T09:33:02+08:00" />
+<meta property="article:modified_time" content="2021-01-02T09:33:02+08:00" />
 
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Categories"/>
-<meta name="twitter:description" content="马昊 的搬砖记录～"/>
+<meta name="twitter:title" content="JVM 垃圾收集"/>
+<meta name="twitter:description" content="关键词 ：JVM；GC"/>
 
 
 <link rel="stylesheet" href="/css/semantic.min.css" />
@@ -63,7 +64,13 @@
   
 </style>
 
-     
+    
+
+
+
+
+
+
   </head>
 
   <body class="default">
@@ -88,7 +95,234 @@
           <div class="dream-max-width">
             
 <div class="ui centered relaxed grid dream-grid">
-  <div class="sixteen wide mobile sixteen wide tablet four wide computer column">
+  <div class="sixteen wide mobile sixteen wide tablet twelve wide computer column markdown-body dream-single" id="dream-save-post-as-img">
+    
+    <section class="ui top attached segment">
+      <header>
+        <h1 class="ui large header">
+          JVM 垃圾收集
+          <div class="sub header">
+            @
+            
+              马昊
+            
+
+            | 
+                Saturday, Jan 2, 2021
+              
+
+            | 1 minutes read
+
+            | Update at
+              
+                Saturday, Jan 2, 2021
+              
+          </div>
+        </h1>
+      </header>
+
+      <article class="main"><h5 id="关键词-jvmgc">关键词 ：JVM；GC</h5>
+<hr>
+<h2 id="相关概念">相关概念</h2>
+<ol>
+<li>What？When？How？
+<ul>
+<li>没有任何“指针”指向的对象</li>
+<li><code>早期时代：</code>C/C++ 开发人员手动 new / delete 进行内存释放；</li>
+<li><code>现在：</code>自动申请自动回收</li>
+<li><code>作用区域：</code>方法区(JVM规范中不强求)，堆区</li>
+</ul>
+</li>
+<li>GC随着JDK 不断调整</li>
+<li>System.gc()：Runtime.getRuntime().gc() / 显示调用 Full GC / 免责声明 / System.runFinalization() 一定会调用</li>
+<li>内存溢出：OOM / 没有空闲内存，且GC后无法提供更多内存</li>
+<li>内存泄漏：对象不再被使用，但GC又不能回收 / 生命周期(不必要)长的对象
+<ul>
+<li>举例子：单例模式 / 外部连接资源未被close</li>
+</ul>
+</li>
+<li>STW：确保数据一致性</li>
+<li>安全点：Safepoint，特定位置进行SYTW -&gt; GC</li>
+<li>安全区域：针对 sleep 和 block 状态 / 对象引用关系不发生改变 / 处处可以GC</li>
+<li>引用：
+<ul>
+<li><code>强引用：</code>传统引用 / 不回收</li>
+<li><code>软引用：</code>内存不足即回收 / 内存足够不会回收</li>
+<li><code>弱引用：</code>GC就回收</li>
+<li><code>虚引用：</code>Phantom / 对象回收的跟踪</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="java-垃圾回收相关算法">Java 垃圾回收相关算法</h2>
+<ol>
+<li>标记阶段：
+<ul>
+<li>引用计数器
+<ul>
+<li><code>原理：</code>对于每个对象保存一个整型引用计数器用于记录其被引用情况</li>
+<li><code>优点：</code>简单 / 判定效率高，没有延迟性</li>
+<li><code>缺点：</code>空间时间开销 / 无法处理循环引用</li>
+<li><code>Tips：</code>Java 并不使用 / Python使用(手动，weakref)</li>
+</ul>
+</li>
+<li>可达性分析算法
+<ul>
+<li><code>原理：</code>以根对象集合(GC Roots)为起点，由上至下搜索集合中目标对象是否可达 (引用关系：引用链)</li>
+<li><code>GC Roots 包含元素：</code>
+<ul>
+<li>JVM 栈</li>
+<li>本地方法栈</li>
+<li>方法区类的静态属性引用的对象</li>
+<li>方法区中常量引用对象</li>
+<li>同步锁持有对象</li>
+<li>JVM 内部引用</li>
+<li>临时对象 (局部回收 / 分代收集)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>对象的 finalization 机制
+<ul>
+<li><code>原理：</code>对象被销毁之前的自定义处理逻辑</li>
+<li><code>实现：finalize()</code>不要主动使用
+<ul>
+<li>可能导致对象复活</li>
+<li>执行时间无保障，由GC线程决定</li>
+<li>可能会影响GC性能</li>
+</ul>
+</li>
+<li><code>对象的三种状态：</code>
+<ul>
+<li>可触及</li>
+<li>可复活：可能在 finalize() 中复活，finalize() 只能使用一次！</li>
+<li>不可触及</li>
+</ul>
+</li>
+<li><code>回收过程：</code>至少经历两次标记</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>清除阶段：
+<ul>
+<li><code>清除：</code>非置空，将待清除对象地址保存在空列表中</li>
+<li>标记-清除算法(Mark-Sweep)
+<ul>
+<li><code>原理：</code>
+<ul>
+<li>标记：根节点遍历，标记<strong>所有被引用对象</strong></li>
+<li>清除：堆内存线性遍历，回收未标记对象</li>
+</ul>
+</li>
+<li><code>优点：</code>易理解 / 简单</li>
+<li><code>缺点：</code>效率不高 / GC时需要STW / 空闲内存非连续，产生内存碎片，需要维护一个空列表</li>
+</ul>
+</li>
+<li>复制算法(Cpoying)
+<ul>
+<li><code>原理：</code>内存分两块 -&gt; 每次用一块 -&gt; GC时复制存活对象到另一块 -&gt; 清除原本使用的那一块内存 -&gt; 交换内存角色</li>
+<li><code>优点：</code>实现简单 / 空间连续</li>
+<li><code>缺点：</code>两倍内存 / 对于G1，意味着需要维护region之间的引用关系，时空开销不小 / 存活对象多效果差</li>
+</ul>
+</li>
+<li>标记-压缩算法(Mear-Compact)
+<ul>
+<li><code>原理：</code>标记算法 / 将存活对象压缩到内存一端 / 清理边界外内存</li>
+<li><code>优点：</code>消除标记清除，复制算法的缺点</li>
+<li><code>缺点：</code>效率低 / 调整地址</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="分代收集算法">分代收集算法</h2>
+<ol>
+<li>年轻代(Young Gen)：Copying</li>
+<li>老年代(Tenured Gen)：混合标记-清除与标记-压缩
+<ul>
+<li>CMS：基于Mark-Sweep</li>
+<li>Serial Old：基于Mark-Compact</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="增量收集算法">增量收集算法</h2>
+<ol>
+<li><code>基本思想：</code>解决STW / 垃圾收集线程只收集一小片区域的内存空间，接着切换到应用程序线程，依次反复</li>
+<li>基于Mark-Sweep / Copying 算法</li>
+<li><code>缺点：</code>系统吞吐量下降</li>
+</ol>
+<hr>
+<h2 id="分区算法">分区算法</h2>
+<ol>
+<li><code>基本思想：</code>将内存分为一个一个的region / 独立回收 / 针对STW</li>
+</ol>
+<hr>
+<h2 id="垃圾回收的并发与并行">垃圾回收的并发与并行</h2>
+<ol>
+<li><code>Concurrent：</code>时间段切换（时间段内同时发生）
+<ul>
+<li>用户线程和垃圾回收线程同一时间段内发生</li>
+</ul>
+</li>
+<li><code>Parallel：</code>一个计算核心执行一个线程（统一时间点发生）
+<ul>
+<li>Serial：串行</li>
+<li>Parallel：</li>
+</ul>
+</li>
+</ol></article>
+    </section>
+
+    <footer class="ui attached segment dream-tags" data-html2canvas-ignore>
+      
+        
+          <a class="ui label" href="/tags/jvm" title="jvm">jvm</a>
+        
+          <a class="ui label" href="/tags/java" title="java">java</a>
+        
+      
+      <div
+        class="ui label"
+        style="float: right; cursor: pointer;"
+        onclick="savePostAsImg()">
+        <i class="save icon"></i>Save as image
+      </div>
+    </footer>
+
+    
+
+    
+    
+    
+
+    
+
+  </div>
+  <aside class="sixteen wide mobile sixteen wide tablet four wide computer column dream-single-aside">
+    
+    
+      <div class="ui segment toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#相关概念">相关概念</a></li>
+    <li><a href="#java-垃圾回收相关算法">Java 垃圾回收相关算法</a></li>
+    <li><a href="#分代收集算法">分代收集算法</a></li>
+    <li><a href="#增量收集算法">增量收集算法</a></li>
+    <li><a href="#分区算法">分区算法</a></li>
+    <li><a href="#垃圾回收的并发与并行">垃圾回收的并发与并行</a></li>
+  </ul>
+</nav>
+      </div>
+    
+
     <article class="dream-header">
   <section class="ui top attached center aligned segment">
     <div class="ui small circular image">
@@ -98,12 +332,12 @@
     </div>
 
     
-    <div class="ui medium header">
+    <h1 class="ui medium header">
     
       马昊&#39;s blog
       <div class="sub header" style="margin-top: 0.5rem;"></div>
     
-    </div>
+    </h1>
     
 
     <div class="ui horizontal list">
@@ -300,60 +534,7 @@
   </section>
 </article>
 
-  </div>
-  <div class="sixteen wide mobile sixteen wide tablet twelve wide computer column">
-    <div class="ui segment dream-categories-section">
-      <h1 class="ui large header">All Categories<div class="ui grey sub header">
-          3 categories
-        </div>
-      </h1>
-
-      
-      
-        
-        <h2 class="ui medium header">
-          <a href="/categories/java/">Java</a>&nbsp;1 article</h2>
-        <ul>
-          
-            <li>
-              <a href="/post/blog_java_stream/">JAVA stream</a>
-            </li>
-          
-        </ul>
-      
-        
-        <h2 class="ui medium header">
-          <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a>&nbsp;2 articles</h2>
-        <ul>
-          
-            <li>
-              <a href="/post/blog_2020_12_21/">美化 Hugo 主题</a>
-            </li>
-          
-            <li>
-              <a href="/post/blog/">使用 Hugo 搭建个人博客 </a>
-            </li>
-          
-        </ul>
-      
-        
-        <h2 class="ui medium header">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E4%B9%8B%E7%BE%8E/">编程之美</a>&nbsp;2 articles</h2>
-        <ul>
-          
-            <li>
-              <a href="/post/blog_beautyofprogramming_01/">一摞烙饼的排序</a>
-            </li>
-          
-            <li>
-              <a href="/post/blog_beautyofprogramming/">象棋将帅问题</a>
-            </li>
-          
-        </ul>
-      
-
-    </div>
-  </div>
+  </aside>
 </div>
 
           </div>
@@ -463,7 +644,13 @@
 <script src="/js/main.js"></script>
 <script src="/js/theme.js"></script>
 
-     
+    
+<script src="/js/html2canvas.min.js"></script>
+<script src="/js/post.js"></script>
+
+
+
+
 
     
 
