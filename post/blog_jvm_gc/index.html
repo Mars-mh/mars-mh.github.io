@@ -125,7 +125,7 @@
 <p>关于JVM中GC相关概念及算法的笔记摘要~</p>
 <h2 id="相关概念">相关概念</h2>
 <ol>
-<li>What？When？How？
+<li><strong>What？When？How？</strong>
 <ul>
 <li>没有任何“指针”指向的对象</li>
 <li><code>早期时代：</code>C/C++ 开发人员手动 new / delete 进行内存释放；</li>
@@ -133,18 +133,18 @@
 <li><code>作用区域：</code>方法区(JVM规范中不强求)，堆区</li>
 </ul>
 </li>
-<li>GC随着JDK 不断调整</li>
-<li>System.gc()：Runtime.getRuntime().gc() / 显示调用 Full GC / 免责声明 / System.runFinalization() 一定会调用</li>
-<li>内存溢出：OOM / 没有空闲内存，且GC后无法提供更多内存</li>
-<li>内存泄漏：对象不再被使用，但GC又不能回收 / 生命周期(不必要)长的对象
+<li><strong>GC随着JDK 不断调整</strong></li>
+<li>**System.gc()：**Runtime.getRuntime().gc() / 显示调用 Full GC / 免责声明 / System.runFinalization() 一定会调用</li>
+<li>**内存溢出：**OOM / 没有空闲内存，且GC后无法提供更多内存</li>
+<li>**内存泄漏：**对象不再被使用，但GC又不能回收 / 生命周期(不必要)长的对象
 <ul>
 <li>举例子：单例模式 / 外部连接资源未被close</li>
 </ul>
 </li>
-<li>STW：确保数据一致性</li>
-<li>安全点：Safepoint，特定位置进行SYTW -&gt; GC</li>
-<li>安全区域：针对 sleep 和 block 状态 / 对象引用关系不发生改变 / 处处可以GC</li>
-<li>引用：
+<li>**STW：**确保数据一致性</li>
+<li>**安全点：**Safepoint，特定位置进行SYTW -&gt; GC</li>
+<li>**安全区域：**针对 sleep 和 block 状态 / 对象引用关系不发生改变 / 处处可以GC</li>
+<li><strong>引用：</strong>
 <ul>
 <li><code>强引用：</code>传统引用 / 不回收</li>
 <li><code>软引用：</code>内存不足即回收 / 内存足够不会回收</li>
@@ -156,7 +156,7 @@
 <hr>
 <h2 id="java-垃圾回收相关算法">Java 垃圾回收相关算法</h2>
 <ol>
-<li>标记阶段：
+<li><strong>标记阶段：</strong>
 <ul>
 <li>引用计数器
 <ul>
@@ -204,7 +204,7 @@
 </li>
 </ul>
 </li>
-<li>清除阶段：
+<li><strong>清除阶段：</strong>
 <ul>
 <li><code>清除：</code>非置空，将待清除对象地址保存在空列表中</li>
 <li>标记-清除算法(Mark-Sweep)
@@ -239,8 +239,8 @@
 <hr>
 <h2 id="分代收集算法">分代收集算法</h2>
 <ol>
-<li>年轻代(Young Gen)：Copying</li>
-<li>老年代(Tenured Gen)：混合标记-清除与标记-压缩
+<li>**年轻代(Young Gen)：**Copying</li>
+<li>**老年代(Tenured Gen)：**混合标记-清除与标记-压缩
 <ul>
 <li>CMS：基于Mark-Sweep</li>
 <li>Serial Old：基于Mark-Compact</li>
