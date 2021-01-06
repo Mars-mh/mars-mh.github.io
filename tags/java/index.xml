@@ -6,9 +6,18 @@
     <description>Recent content in java on Mars Blog ~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 02 Jan 2021 09:33:02 +0800</lastBuildDate><atom:link href="https://mars-mh.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Jan 2021 21:16:28 +0800</lastBuildDate><atom:link href="https://mars-mh.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>JVM 垃圾收集</title>
+      <title>JVM 垃圾回收器</title>
+      <link>https://mars-mh.github.io/post/blog_jvm_gc_02/</link>
+      <pubDate>Sat, 02 Jan 2021 21:16:28 +0800</pubDate>
+      
+      <guid>https://mars-mh.github.io/post/blog_jvm_gc_02/</guid>
+      <description>&lt;p&gt;关键词 ：JVM；GC&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>JVM 垃圾收集概述</title>
       <link>https://mars-mh.github.io/post/blog_jvm_gc/</link>
       <pubDate>Sat, 02 Jan 2021 09:33:02 +0800</pubDate>
       

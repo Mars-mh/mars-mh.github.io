@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>JVM 垃圾收集 | Mars Blog ~</title>
+    <title>JVM 垃圾收集概述 | Mars Blog ~</title>
 
     
 
@@ -20,7 +20,7 @@
 <link rel="canonical" href="https://mars-mh.github.io/post/blog_jvm_gc/" />
 
 
-<meta property="og:title" content="JVM 垃圾收集" />
+<meta property="og:title" content="JVM 垃圾收集概述" />
 <meta property="og:description" content="关键词 ：JVM；GC" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://mars-mh.github.io/post/blog_jvm_gc/" />
@@ -30,7 +30,7 @@
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="JVM 垃圾收集"/>
+<meta name="twitter:title" content="JVM 垃圾收集概述"/>
 <meta name="twitter:description" content="关键词 ：JVM；GC"/>
 
 
@@ -100,7 +100,7 @@
     <section class="ui top attached segment">
       <header>
         <h1 class="ui large header">
-          JVM 垃圾收集
+          JVM 垃圾收集概述
           <div class="sub header">
             @
             
@@ -148,7 +148,7 @@
 <ul>
 <li><code>强引用：</code>传统引用 / 不回收</li>
 <li><code>软引用：</code>内存不足即回收 / 内存足够不会回收</li>
-<li><code>弱引用：</code>GC就回收</li>
+<li><code>弱引用：</code>GC发现就回收</li>
 <li><code>虚引用：</code>Phantom / 对象回收的跟踪</li>
 </ul>
 </li>
@@ -270,7 +270,7 @@
 <li><code>Parallel：</code>一个计算核心执行一个线程（统一时间点发生）
 <ul>
 <li>Serial：串行</li>
-<li>Parallel：</li>
+<li>Parallel：并行</li>
 </ul>
 </li>
 </ol></article>
@@ -357,6 +357,12 @@
     
       
       
+      <a class="ui label" href="/tags/hadoop/" title="Hadoop">
+        Hadoop
+      </a>
+    
+      
+      
       <a class="ui label" href="/tags/hugo/" title="Hugo">
         Hugo
       </a>
@@ -405,12 +411,48 @@
             <i class="dropdown icon"></i>
             
             
+            <a class="item" href="/categories/hadoop/" title="Hadoop">
+              Hadoop
+            </a>
+          </div>
+          <div class="content">
+            <div class="ui list">
+            
+              <div class="item">
+                <div class="content">
+                  <a class="item" href="/post/blog_hadoop_01/">Hadoop 概述</a>
+                </div>
+              </div>
+            
+            </div>
+          </div>
+        
+      
+        
+
+        
+          <div class="title">
+            <i class="dropdown icon"></i>
+            
+            
             <a class="item" href="/categories/java/" title="Java">
               Java
             </a>
           </div>
           <div class="content">
             <div class="ui list">
+            
+              <div class="item">
+                <div class="content">
+                  <a class="item" href="/post/blog_jvm_gc_02/">JVM 垃圾回收器</a>
+                </div>
+              </div>
+            
+              <div class="item">
+                <div class="content">
+                  <a class="item" href="/post/blog_jvm_gc/">JVM 垃圾收集概述</a>
+                </div>
+              </div>
             
               <div class="item">
                 <div class="content">
