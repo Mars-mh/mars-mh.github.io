@@ -143,8 +143,80 @@
 </ol>
 <h2 id="主流-gc-回收器概述">主流 GC 回收器概述</h2>
 <ol>
-<li>
-<hr>
+<li><strong>Serial GC</strong>
+<ul>
+<li>单核串行，最基本，历史悠久</li>
+<li>新生代：复制算法、串行回收、STW 机制（暂停其他工作线程）</li>
+<li>老年代：标记压缩算法、串行回收、STW 机制
+<ul>
+<li>与新生代 Parallel Scavenge 配合使用 （JDK10 移除）</li>
+<li>作为老年代 CMS 的后备GC 方案 （JDK14 CMS GC 被移除）</li>
+</ul>
+</li>
+<li>指定命令：-XX:+UseSerialGC</li>
+<li>优缺点：
+<ul>
+<li>单线程下简单高效</li>
+<li>串行</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>ParNew GC</strong>
+<ul>
+<li>并行回收、新生代</li>
+<li>新生代：复制算法、并行回收、STW 机制</li>
+<li>老年代：
+<ul>
+<li>Serial Old （JDK9 移除）</li>
+<li>CMS （JDK14 CMS GC 被移除）</li>
+</ul>
+</li>
+<li>指定命令：
+<ul>
+<li>-XX:+UseParNewGC</li>
+<li>-XX:ParallelGCThreads 线程数量（默认同CPU数据相同 量）</li>
+</ul>
+</li>
+<li>优缺点
+<ul>
+<li>并行</li>
+<li>单CPU下不如 Serial GC</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>ParallelScavenge GC (JDK8)</strong>
+<ul>
+<li>可控制吞吐量（适合后台运行，低交互）、自适应条件策略</li>
+<li>新生代：复制算法、并行回收、STW 机制</li>
+<li>老年代（Parallel Old）：标记压缩算法、并行回收、STW 机制（JDK1.6 提供、补充短板）</li>
+<li>指定命令：
+<ul>
+<li>-XX:+UseParallelGC</li>
+<li>-XX:+UseParallelOldGC （互相激活）</li>
+<li>-XX:ParallelGCThreads 线程数量 （CPU大于8时：<code>3+[5*CPU_Count/8]</code>）</li>
+<li>-XX:MaxGCPauseMillis STW 时间
+<ul>
+<li>会调整 Java 堆大小和其他参数</li>
+</ul>
+</li>
+<li>-XX:GCTimeRatio 垃圾收集时间占比 （=<code>1/(N+1)</code>）
+<ul>
+<li>取值范围：（0，100），默认99</li>
+<li>与 MaxGCPauseMillis 相矛盾</li>
+</ul>
+</li>
+<li>-XX:+UseAdaptiveSizePolicy 设置自适应调节策略（Tips：新生代分区比例）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>CMS GC</strong>
+<ul>
+<li>Concurrent-Mark-Sweap（并发）</li>
+<li></li>
+</ul>
 </li>
 <li></li>
 </ol></article>
