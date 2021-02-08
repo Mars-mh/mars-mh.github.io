@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Hadoop 概述 | Mars Blog ~</title>
+    <title>LeetCode 刷题笔记 | Mars Blog ~</title>
 
     
 
@@ -17,21 +17,21 @@
 
 <meta name="generator" content="Hugo 0.79.1" />
 
-<link rel="canonical" href="https://mars-mh.github.io/post/blog_hadoop_01/" />
+<link rel="canonical" href="https://mars-mh.github.io/post/blog_learn_leetcode_01/" />
 
 
-<meta property="og:title" content="Hadoop 概述" />
-<meta property="og:description" content="关键词 ：Hadoop；概述" />
+<meta property="og:title" content="LeetCode 刷题笔记" />
+<meta property="og:description" content="关键词 ：算法；排序问题；" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://mars-mh.github.io/post/blog_hadoop_01/" />
-<meta property="article:published_time" content="2021-01-03T11:25:42+08:00" />
-<meta property="article:modified_time" content="2021-01-03T11:25:42+08:00" />
+<meta property="og:url" content="https://mars-mh.github.io/post/blog_learn_leetcode_01/" />
+<meta property="article:published_time" content="2021-02-08T11:48:14+08:00" />
+<meta property="article:modified_time" content="2021-02-08T11:48:14+08:00" />
 
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Hadoop 概述"/>
-<meta name="twitter:description" content="关键词 ：Hadoop；概述"/>
+<meta name="twitter:title" content="LeetCode 刷题笔记"/>
+<meta name="twitter:description" content="关键词 ：算法；排序问题；"/>
 
 
 <link rel="stylesheet" href="/css/semantic.min.css" />
@@ -100,7 +100,7 @@
     <section class="ui top attached segment">
       <header>
         <h1 class="ui large header">
-          Hadoop 概述
+          LeetCode 刷题笔记
           <div class="sub header">
             @
             
@@ -108,64 +108,67 @@
             
 
             | 
-                Sunday, Jan 3, 2021
+                Monday, Feb 8, 2021
               
 
             | 1 minutes read
 
             | Update at
               
-                Sunday, Jan 3, 2021
+                Monday, Feb 8, 2021
               
           </div>
         </h1>
       </header>
 
-      <article class="main"><p>关键词 ：Hadoop；概述</p>
-<p>Hadoop生态圈及相关概念~</p>
-<h2 id="大数据生态体系">大数据生态体系</h2>
-<ol>
-<li>数据来源层</li>
-<li>数据传输层
+      <article class="main"><p>关键词 ：算法；排序问题；</p>
+<p>Leetcode 刷题方法整理~</p>
+<h2 id="经典方法回顾">经典方法回顾</h2>
+<h3 id="1-数据结构">1. 数据结构</h3>
 <ul>
-<li>Sqoop 数据传递</li>
-<li>Flume 日志收集</li>
-<li>Kafka 消息队列</li>
+<li>链表基础
+<ul>
+<li>指针修改 &amp; 链表拼接</li>
+<li>指针修改案例——链表反转：</li>
 </ul>
 </li>
-<li>数据存储层
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> MyListNode <span style="color:#a6e22e">reverseHelper</span><span style="color:#f92672">(</span>MyListNode head<span style="color:#f92672">,</span> MyListNode tail<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        MyListNode cur <span style="color:#f92672">=</span> head<span style="color:#f92672">;</span>
+        MyListNode pre <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        MyListNode next<span style="color:#f92672">;</span>
+
+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>cur <span style="color:#f92672">!=</span> tail<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            next <span style="color:#f92672">=</span> cur<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+            cur<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> pre<span style="color:#f92672">;</span>
+
+            <span style="color:#75715e">// 往下迭代
+</span><span style="color:#75715e"></span>            pre <span style="color:#f92672">=</span> cur<span style="color:#f92672">;</span>
+            cur <span style="color:#f92672">=</span> next<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#75715e">// 边界
+</span><span style="color:#75715e"></span>        tail<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> pre<span style="color:#f92672">;</span>
+
+        <span style="color:#66d9ef">return</span> tail<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>链表考点
 <ul>
-<li>HDFS</li>
-<li>HBase</li>
-<li>Kafka</li>
+<li>边界</li>
+<li>环</li>
+<li>递归</li>
 </ul>
 </li>
-<li>资源管理
-<ul>
-<li>YARN</li>
-</ul>
-</li>
-<li>数据计算
-<ul>
-<li>MapReduce：Hive，Mahout</li>
-<li>Spark Core：Mlib，R，Sql，Streaming 实时计算</li>
-<li>Storm 实时计算</li>
-</ul>
-</li>
-<li>任务调度层
-<ul>
-<li>Oozie 任务调度</li>
-<li>Azkaban 任务调度</li>
-<li>Zookeeper 数据平台调度和配置</li>
-</ul>
-</li>
-</ol></article>
+<li></li>
+</ul></article>
     </section>
 
     <footer class="ui attached segment dream-tags" data-html2canvas-ignore>
       
         
-          <a class="ui label" href="/tags/hadoop" title="Hadoop">Hadoop</a>
+          <a class="ui label" href="/tags/%E7%AE%97%E6%B3%95" title="算法">算法</a>
+        
+          <a class="ui label" href="/tags/java" title="java">java</a>
         
       
       <div
@@ -191,7 +194,11 @@
       <div class="ui segment toc">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#大数据生态体系">大数据生态体系</a></li>
+    <li><a href="#经典方法回顾">经典方法回顾</a>
+      <ul>
+        <li><a href="#1-数据结构">1. 数据结构</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
       </div>
